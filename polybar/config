@@ -13,7 +13,7 @@
 
 [global/wm]
 ;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
-margin-top = 4
+margin-top = 2
 margin-bottom = 2
 
 [settings]
@@ -33,25 +33,25 @@ compositing-border = over
 
 [colors]
 ; Nord theme ============
-background = #cc0e0e0e
-foreground = #fbfbfb
-alert = #d08770
-volume-min = #a3be8c
-volume-med = #ebcb8b
-volume-max = #bf616a
+;background = #cc0e0e0e
+;foreground = #fbfbfb
+;alert = #d08770
+;volume-min = #a3be8c
+;volume-med = #ebcb8b
+;volume-max = #bf616a
 ; =======================
 
-;background = #2E3440
-;foreground = #D8DEE9
-;black      = #4C566A
-;red        = #BF616A
-;green      = #A3BE8C
-;yellow     = #EBCB8B
-;blue       = #5E81AC
-;magenta    = #B48EAD
-;cyan       = #8FBCBB
-;white      = #D8DEE9
-;orange     = #D08770
+background = #2E3440
+foreground = #D8DEE9
+black      = #4C566A
+red        = #BF616A
+green      = #A3BE8C
+yellow     = #EBCB8B
+blue       = #5E81AC
+magenta    = #B48EAD
+cyan       = #8FBCBB
+white      = #D8DEE9
+orange     = #D08770
 
 ################################################################################
 ############                  MAINBAR-BSPWM                         ############
@@ -68,9 +68,7 @@ height = 32
 ;radius = 9.0
 fixed-center = true
 bottom = false
-
-background = ${colors.background}
-foreground = ${colors.foreground}
+separator =
 
 wm-restack = bspwm
 override-redirect = true
@@ -84,15 +82,14 @@ border-size = 0
 ;border-right-size = 25
 ;border-top-size = 0
 ;border-bottom-size = 25
-border-color = #cc0e0e0e
+
 
 ;https://github.com/jaagr/polybar/wiki/Fonts
-font-0 = "Noto Sans:antialias=false:size=20;5"
-font-1 = "UbuntuMono Nerd Font:antialias=false:size=32;5"
-font-2 = "Font Awesome 5 Free:antialias=false:style=Solid:size=32;5"
-font-3 = "DejaVu Sans Mono for Powerline:antialias=false:size=36;5"
-font-4 = "Font Awesome 5 Free:antialias=false:style=Regular:size=32;5"
-font-5 = "Font Awesome 5 Brands:antialias=false:size=32;5"
+font-0 = "Noto Sans:antialias=false:size=18;5"
+font-1 = "UbuntuMono Nerd Font:antialias=false:size=30;5"
+font-2 = "Font Awesome 5 Free:antialias=false:style=Solid:size=30;5"
+font-3 = "DejaVu Sans Mono for Powerline:antialias=false:size=30;5"
+font-4 = "Font Awesome 5 Free:antialias=false:style=Regular:size=30;5"
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
@@ -108,15 +105,15 @@ height = 40
 ;offset-x = 1%
 ;offset-y = 1%
 ;radius = 9.0
-fixed-center = true
+;fixed-center = true
 bottom = false
-
-
-background = #cc0e0e0e
-foreground = #fbfbfb
+separator =
 
 wm-restack = bspwm
 override-redirect = true
+background = #2E3440
+foreground = #D8DEE9
+
 
 ; Enable support for inter-process messaging
 ; See the Messaging wiki page for more details.
@@ -141,23 +138,22 @@ module-margin-center = 0
 font-0 = "Noto Sans:antialias=false:size=20;5"
 font-1 = "UbuntuMono Nerd Font:antialias=false:size=32;7"
 font-2 = "Font Awesome 5 Free:antialias=false:style=Solid:size=32;7"
-font-3 = "DejaVu Sans Mono for Powerline:antialias=false:size=50;5"
+font-3 = "DejaVu Sans Mono for Powerline:antialias=false:size=30;5"
 font-4 = "Font Awesome 5 Free:antialias=false:style=Regular:size=32;7"
 font-5 = "Font Awesome 5 Brands:antialias=false:size=32;7"
 
-modules-left = ewmh RightArrow3 RightStripe1 RightArrow3 xwindow RightArrow1 RightStripe RightArrow1
-modules-center = MiddleArrowLeft date MiddleArrowRight
-modules-right = arrow1 LeftArrow1 arrow1 weather larrow memory2 arrow3 cpu2 larrow pavolume arrow3
+modules-left = ra5 ra3 ewmh ra1 ra3 ra4
+modules-center = la4 la3 la1 weather la3 la2 time ra2 ra3 date ra1 ra3 ra4
+modules-right = la4 la3 la1 memory2 cpu2 la3 la2 pavolume la6 la5
 
-tray-detached = false
-tray-offset-y = 0
-tray-offset-x = 0
+tray-detached =
+tray-offset-x = -1
 tray-padding = 3
 tray-maxsize = 50
 tray-scale = 1.0
 tray-position = right
-tray-background = #fbfbfb
-
+tray-background = #BF616A
+tray = right | left
 scroll-up = herbstclient use_index -1
 scroll-down = herbstclient use_index +1
 
@@ -173,109 +169,126 @@ fuzzy-match = true
 reverse-scroll = true
 pin-workspaces = true
 
-label-state> <label-mode>
+
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3 = 4;
+icon-4 = 5;
+
+format = <label-state> 
+
+label-monitor = %icon%
 label-focused = %icon%
-label-focused-background = #55896c
+label-focused-background = #8FBCBB
 label-focused-padding = 3
 label-focused-font = 2
-label-focused-foreground = #3ce664
+label-focused-foreground = #f10000
 label-occupied = %icon%
 label-occupied-padding = 3
 label-occupied-font = 2
-label-occupied-background = #55896c
-label-occupied-foreground = #cc0e0e0e
+label-occupied-background = #8FBCBB
+label-occupied-foreground = #0e0e0e
 label-empty = %icon%
 label-empty-foreground = #fbfbfb
-label-empty-padding = 3
-label-empty-font = 2
-label-empty-background = #55896c
+label-empty-padding = 0
+label-empty-font = 0
+label-empty-background = #8FBCBB
 
 
 ###############################################################################
 ############                       MODULES ARROWS                     ############
-[module/arrow1]
+[module/ra1]
 type = custom/text
-content = "%{T2}%{T-}"
-content-foreground = #fbfbfb
-content-background = #cc0e0e0e
+content            = %{T2}%{T-}
+content-foreground = ${colors.cyan}
+content-background = ${colors.background}
 
-[module/arrow2]
+[module/ra4]
 type = custom/text
-content =  "%{T2} %{T-}"
-content-foreground = #55896c
-content-background = #fbfbfb
+content            = %{T2}%{T-}
+content-foreground = ${colors.cyan}
+content-background = ${colors.background}
 
-[module/RightStripe1]
+[module/ra5]
 type = custom/text
-content = ""
-content-foreground = #fbfbfb
-content-background = #55896c
+content = %{T2}%{T-}
+content-foreground = ${colors.red}
+content-background = ${colors.background}
 
-[module/arrow3]
+[module/ra2]
 type = custom/text
-content = "%{T2} %{T-}"
-content-foreground = #fbfbfb
-content-background = #55896c
+; Label
+content            = %{T2}%{T-}
+content-foreground = ${colors.blue}
+content-background = ${colors.background}
 
-[module/arrow4]
+[module/ra3]
 type = custom/text
-content = "%{T2}  %{T-}"
-content-foreground = #cc0e0e0e
-content-background = #55896c
+content   = %{T2}%{T-}
+content-foreground = ${colors.background}
+content-background = ${colors.cyan}
 
-[module/RightStripe]
+
+[module/la1]
 type = custom/text
-content = ""
-content-foreground = #cc0e0e0e
-content-background = #fbfbfb
 
-[module/RightArrow1]
+; Label
+content            = %{T2}%{T-}
+content-foreground = ${colors.cyan}
+content-background = ${colors.background}
+
+[module/la2]
 type = custom/text
-content = ""
-content-foreground = #fbfbfb
-content-background = #cc0e0e0e
 
-[module/LeftArrow1]
-type=custom/text
-content = %{T2}%{T-}
-content-background = #fbfbfb
-content-foreground = #cc0e0e0e
+; Label
+content            = %{T2}%{T-}
+content-foreground = ${colors.blue}
+content-background = ${colors.background}
 
-[module/larrow]
+[module/la3]
 type = custom/text
-content = "  "
-content-foreground = #55896c
-content-background = #fbfbfb
 
-[module/RightArrow3]
-type = custom/text
-content = ""
-content-foreground = #55896c
-content-background = #fbfbfb
+; Label
+content            = %{T2}%{T-}
+content-foreground = ${colors.background}
+content-background = ${colors.cyan}
 
-[module/MiddleArrowRight]
+[module/la4]
 type = custom/text
-content = "◤"
-content-background = #cc0e0e0e
-content-foreground = #fbfbfb
-;◥ ◤◢ ◣
 
-[module/MiddleArrowLeft]
+; Label
+content            = %{T2}%{T-}
+content-foreground = ${colors.cyan}
+content-background = ${colors.background}
+
+[module/la5]
 type = custom/text
-content = "◥"
-content-background = #cc0e0e0e
-content-foreground = #FbFbFb
+
+; Label
+content            = %{T2}%{T-}
+content-foreground = ${colors.red}
+content-background = ${colors.background}
+
+[module/la6]
+type = custom/text
+
+; Label
+content            = %{T2}%{T-}
+content-foreground = ${colors.background}
+content-background = ${colors.blue}
+
 ###############################################################################
 ############                       MODULES A-Z
 ################################################################################
 [module/compton]
 ;https://github.com/jaagr/polybar/wiki/User-contributed-modules#compton
 type = custom/script
-exec = ~/.config/polybar/scripts/compton.sh
+KEYBINDINGSexec = ~/.config/polybar/scripts/compton.sh
 click-left = ~/.config/polybar/scripts/compton-toggle.sh
-interval = 5
+interval = 5separator =
 format-foreground = #cc0e0e0e
-format-background = #fbfbfb
+format-background =
 ################################################################################
 
 [module/cpu2]
@@ -285,8 +298,8 @@ type = internal/cpu
 ; Default: 1
 interval = 1
 format-foreground = #cc0e0e0e
-format-background = #fbfbfb
-format-prefix = "   "
+format-background = #8FBCBB
+format-prefix = "   "
 format-prefix-foreground = #cc0e0e0e
 
 label-font = 1
@@ -297,7 +310,8 @@ label-font = 1
 ;   <ramp-load>
 ;   <ramp-coreload>
 format = <label>
-; Available tokens:
+; Available tokerbstluftwm]
+monitor = ${env:MONITOR}ns:
 ;   %percentage% (default) - total cpu load
 ;   %percentage-cores% - load percentage for each core
 ;   %percentage-core[1-9]% - load percentage for specific core
@@ -312,40 +326,59 @@ reverse-scroll = true
 
 icon-0 = 1;
 icon-1 = 2;
-icon-2 = 3;
+icon-2 = 3;
 icon-3 = 4;
 icon-4 = 5;
-format = <label-state>
+format = <label-state> 
 label-monitor = %icon%
 
-label-active = %icon%
-label-active-foreground = #3ce664
-label-active-background = #55896c
+label-active = %icon% 
+label-active-foreground = #f10000
+label-active-background = #8FBCBB
 label-active-padding = 3
-label-occupied-background = #55896c
+
+label-occupied-background = #8FBCBB
 label-occupied-foreground = #f10000
 label-occupied = %icon%
 label-occupied-padding = 3
-
-label-empty = %icon%
-label-empty-foreground = #fbfbfb
+
+label-empty =  %icon%
+label-empty-foreground = #0e0e0e
 label-empty-padding = 3
-label-empty-background = #55896c
+label-empty-background = #8FBCBB
 
 
 ################################################################################
+; ===========
+; Time Module
+; ===========
+[module/time]
+type = internal/date
+; Update interval
+interval = 1.0
+; Format
+time = %I:%M
+; Label
+label            = %time%
+label-foreground = ${colors.white}
+label-background = ${colors.blue}
+label-padding    = 2
+
+; ===========
+; Date Module
+; ===========
 [module/date]
 type = internal/date
-interval = 5
-;date-alt = "%a %D "
-date = "  %a, %D  "
-;time-alt = %H:%M
-time =  " %H:%M  "
-format-prefix-foreground = #cc0e0e0e
-format-prefix-background = #fbfbfb
-format-foreground = #cc0e0e0e
-format-background = #fbfbfb
-label = %date% %time%
+; Update interval
+interval = 1.0
+; Format
+date = %A, %d
+; Label
+label            = %date%
+label-foreground = ${colors.black}
+label-background = ${colors.cyan}
+label-padding = 2
+
 ################################################################################
 ########################################################################
 [module/memory2]
@@ -363,10 +396,10 @@ interval = 1
 ;   %mb_total%
 label = "  %percentage_used%%"
 format = <label>
-format-prefix = "  "
+format-prefix = "  "
 format-prefix-foreground = #cc0e0e0e
 format-foreground = #cc0e0e0e
-format-background = #55896c
+format-background = #8FBCBB
 ################################################################################
 [module/pavolume]
 type = custom/script
@@ -377,34 +410,21 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/scripts/pavolume.sh --togmute
 scroll-up = ~/.config/polybar/scripts/pavolume.sh --up
 scroll-down = ~/.config/polybar/scripts/pavolume.sh --down
-format-foreground = #cc0e0e0e
-format-background = #55896c
+format-foreground = #0e0e0e
+format-background = #5E81AC
 ################################################################################
-[module/variety]
-type = custom/script
-exec = echo " Variety"
-;exec = echo " "
-interval = 1
-tail = true
-format-foreground = #cc0e0e0e
-format-background = #fbfbfb
-format-prefix = "    "
-format-prefix-foreground = #FbFbFb
-;format-underline = #0084FF
-click-right = variety --preferences
-click-left = variety --selector
-
-################################################################################
-################################################################################
+; ==============
+; Weather Module
+; ==============
 [module/weather]
 type = custom/script
-interval = 10
-format = <label>
-format-prefix = "    "
-format-prefix-foreground = #7197e7
-format-prefix-background = #fbfbfb
-format-foreground = #cc0e0e0e
-format-background = #fbfbfb
+; Script
+; Update interval
+interval = 600
+label            = %output%
+label-foreground = ${colors.black}
+label-background = ${colors.cyan}
+label-padding    = 2
 exec = python -u ~/.config/polybar/scripts/weather.py
 tail = true
 #################################################################################
@@ -417,10 +437,11 @@ type = internal/xwindow
 label = %title:0:20:...%
 label-maxlen = 25
 format-prefix = "     "
-format-prefix-background = #fbfbfb
+format-prefix-background = #2E3440
 format-prefix-foreground = #cc0e0e0e
 format-foreground = #cc0e0e0e
-format-background = #fbfbfb
+format-background = #2E3440
 
 ###############################################################################
+
 # vim:ft=dosini:
